@@ -1,0 +1,167 @@
+:root {
+  --bg: #fcfcfa;
+  --text: #1b1a18;
+  --muted: #67635d;
+  --placeholder: #ecebe6;
+  --placeholder-text: #6f6b65;
+  --accent: #1d4f91;
+  --berry: #c4483f;
+  --zone: rgba(29, 79, 145, 0.12);
+  --frame: rgba(0, 0, 0, 0.09);
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131312;
+    --text: #ecebe7;
+    --muted: #a9a59e;
+    --placeholder: #232220;
+    --placeholder-text: #a09c95;
+    --accent: #8fb3ec;
+    --berry: #e0675d;
+    --zone: rgba(143, 179, 236, 0.16);
+    --frame: rgba(255, 255, 255, 0.1);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+img, video, svg { display: block; max-width: 100%; }
+img, video { height: auto; }
+figure { margin: 0; }
+
+/* Gray box for a photo or video that hasn't been added yet */
+.slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  aspect-ratio: 3 / 2;
+  padding: 24px;
+  background: var(--placeholder);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--placeholder-text);
+}
+
+/* Home: the intro plus five projects, 3 x 2 on desktop, 2 x 3 on tablets, 1 column on phones */
+
+.index {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 72px 48px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 56px 64px 120px;
+}
+
+.intro p { margin: 0 0 14px; max-width: 21em; }
+.intro .hello { margin-bottom: 18px; font-size: 25px; font-weight: 500; line-height: 1.3; }
+.intro .contact { margin-top: 28px; font-family: var(--mono); font-size: 13px; line-height: 2; color: var(--muted); }
+
+.project { display: block; text-decoration: none; }
+.project .thumb { aspect-ratio: 3 / 2; overflow: hidden; background: var(--placeholder); transition: opacity 0.15s; }
+.project .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.project:hover .thumb { opacity: 0.85; }
+.project .title { display: flex; align-items: baseline; gap: 12px; margin: 16px 0 6px; font-size: 21px; font-weight: 500; line-height: 1.3; }
+.project .num { font-family: var(--mono); font-size: 13px; font-weight: 400; color: var(--muted); }
+.project:hover .name { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.project .desc { margin: 0; font-size: 17px; line-height: 1.45; color: var(--muted); }
+
+/* Project page: every row is media on the left and a short label beside it */
+
+.page { max-width: 1240px; margin: 0 auto; padding: 40px 64px 120px; }
+
+.back, .pager { font-family: var(--mono); font-size: 13px; }
+.back, .pager a { color: var(--muted); text-decoration: none; }
+.back:hover, .pager a:hover { color: var(--text); }
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr);
+  column-gap: 48px;
+  align-items: end;
+  margin-bottom: 112px;
+}
+.row .media { grid-column: 1; grid-row: 1; }
+.row .label { grid-column: 2; grid-row: 1; }
+.row.first { align-items: start; margin-top: 40px; }
+
+.label { max-width: 22em; font-size: 16px; line-height: 1.55; color: var(--muted); }
+.label .tag { display: block; margin-bottom: 8px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.label h1 { margin: 0; font-size: clamp(28px, 2.6vw, 36px); font-weight: 500; line-height: 1.15; color: var(--text); text-wrap: balance; }
+.label p { margin: 14px 0 0; }
+.label .summary { font-size: 18px; }
+.label .links { font-family: var(--mono); font-size: 13px; }
+.label .links a { color: var(--text); }
+
+/* Portrait video in the first row: as tall as the screen allows, up to 400px wide */
+.row.first.tall-media { grid-template-columns: auto minmax(0, 1fr); }
+.vertical { width: min(400px, calc((100vh - 160px) * 9 / 16)); aspect-ratio: 9 / 16; background: var(--placeholder); }
+
+.video-slot { aspect-ratio: 16 / 9; }
+.play { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; background: var(--bg); }
+.play::before {
+  content: "";
+  margin-left: 5px;
+  border-left: 18px solid var(--text);
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+}
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.phones { max-width: 560px; }
+.narrow { max-width: min(100%, 480px); }
+/* Screenshots have pale edges, so give them a hairline frame */
+.screen { outline: 1px solid var(--frame); outline-offset: -1px; }
+.stack { display: grid; gap: 16px; }
+.schematic { width: 722px; background: #fff; }
+
+/* "How it decides" diagram */
+.diagram { overflow-x: auto; }
+.diagram svg { width: 100%; min-width: 640px; height: auto; }
+.dg-belt { fill: var(--placeholder); }
+.dg-box { fill: var(--bg); stroke: var(--muted); stroke-width: 1; }
+.dg-zone { fill: var(--zone); }
+.dg-berry { fill: var(--berry); }
+.dg-line { fill: none; stroke: var(--muted); stroke-width: 1; }
+.dg-dash { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 4; }
+.dg-trigger { stroke: var(--berry); stroke-width: 2; }
+.dg-flap { stroke: var(--text); stroke-width: 4; stroke-linecap: round; }
+.dg-head { fill: var(--muted); }
+.dg-text { fill: var(--text); font-family: var(--serif); font-size: 16px; }
+.dg-small { fill: var(--muted); font-family: var(--mono); font-size: 12px; }
+
+@media (max-width: 1080px) {
+  .index { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px 40px; padding: 48px 40px 96px; }
+}
+
+@media (max-width: 860px) {
+  .page { padding: 28px 22px 80px; }
+  .row, .row.first, .row.first.tall-media { grid-template-columns: minmax(0, 1fr); row-gap: 18px; margin-bottom: 72px; }
+  .row .media, .row .label { grid-column: 1; grid-row: auto; }
+  .row.first { margin-top: 32px; }
+  .vertical { width: min(100%, 420px); }
+  .grid-2 { gap: 10px; }
+}
+
+@media (max-width: 640px) {
+  .index { grid-template-columns: minmax(0, 1fr); gap: 56px; padding: 36px 22px 80px; }
+}

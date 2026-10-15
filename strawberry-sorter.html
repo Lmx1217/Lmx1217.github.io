@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Machine Vision Strawberry Sorter · Your Name</title>
+  <meta name="description" content="A conveyor that sorts strawberries by ripeness, using a camera and a servo-driven flap.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Newsreader:opsz,wght@6..72,400..500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <a class="back" href="index.html">← All projects</a>
+
+    <div class="row first tall-media">
+      <header class="label">
+        <span class="tag">01</span>
+        <h1>Machine Vision Strawberry Sorter</h1>
+        <p class="summary">A conveyor that sorts strawberries by ripeness. A camera module checks how red each berry is, and a servo-driven flap pushes it into the right chute.</p>
+      </header>
+      <div class="media">
+        <video class="vertical" src="videos/strawberry-run.mp4" poster="images/strawberry/run-poster.jpg" width="720" height="1280" autoplay muted loop playsinline controls preload="auto" aria-label="The sorter running: test strawberries ride the belt under the camera and get pushed into chutes."></video>
+      </div>
+    </div>
+
+    <figure class="row">
+      <div class="media"><img src="images/strawberry/machine.jpg" width="1400" height="1050" alt="The sorter on a workbench, seen from above: blue belt, camera module with touchscreen, servo flap, two black chutes, and the stepper motor."></div>
+      <figcaption class="label">
+        <span class="tag">The machine</span>
+        A 495 mm aluminum frame holds a PU belt, driven by a stepper motor through a 30:1 gearbox. The K230 camera module sits on a printed gantry above the belt with the servo and flap under it, and a chute on each side catches the sorted berries. Its touchscreen handles calibration, settings, and the run screen, so no laptop is needed.
+      </figcaption>
+    </figure>
+
+    <figure class="row">
+      <div class="media"><img src="images/strawberry/machine-closeup.jpg" width="1400" height="1050" alt="Close-up of the sorting end: the K230 module with its screen, the servo and black flap over the belt, and the stepper motor with the driver board beside it."></div>
+      <figcaption class="label">
+        <span class="tag">Up close</span>
+        The K230 and its screen on top, the servo and the flap that pushes berries off the belt, and the stepper motor at the far end.
+      </figcaption>
+    </figure>
+
+    <figure class="row">
+      <div class="media"><img src="images/strawberry/test-strawberries.jpg" width="1400" height="583" alt="Six 3D-printed test strawberries in a row, from fully red to white."></div>
+      <figcaption class="label">
+        <span class="tag">Test strawberries</span>
+        I 3D printed these test strawberries. They run from fully red to white, so all three grades show up, and they're the berries in the video.
+      </figcaption>
+    </figure>
+
+    <figure class="row">
+      <div class="media diagram">
+        <svg viewBox="0 44 760 212" role="img" aria-labelledby="dg-title dg-desc">
+          <title id="dg-title">How the sorter decides</title>
+          <desc id="dg-desc">Berries ride the belt through the camera view. In the sampling zone the camera averages several frames, and at the trigger line it decides the grade. The flap sits 110 mm further along by default. Berries that are 70% or more red go to the ripe chute, 10 to 70% red to the half-ripe chute, and under 10% red ride past.</desc>
+          <defs>
+            <marker id="dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+            </marker>
+          </defs>
+          <rect class="dg-belt" x="10" y="124" width="560" height="48" rx="24"/>
+          <text class="dg-small" x="20" y="152">belt →</text>
+          <rect class="dg-zone" x="150" y="124" width="80" height="48"/>
+          <rect class="dg-dash" x="72" y="104" width="226" height="88"/>
+          <text class="dg-small" x="72" y="96">camera view</text>
+          <line class="dg-trigger" x1="262" y1="112" x2="262" y2="184"/>
+          <circle class="dg-berry" cx="110" cy="148" r="9"/>
+          <circle class="dg-berry" cx="190" cy="148" r="9"/>
+          <circle class="dg-berry" cx="380" cy="148" r="9"/>
+          <line class="dg-line" x1="262" y1="80" x2="480" y2="80"/>
+          <line class="dg-line" x1="262" y1="74" x2="262" y2="86"/>
+          <line class="dg-line" x1="480" y1="74" x2="480" y2="86"/>
+          <text class="dg-small" x="371" y="68" text-anchor="middle">trigger to flap: 110 mm (default)</text>
+          <circle class="dg-head" cx="480" cy="112" r="5"/>
+          <line class="dg-flap" x1="480" y1="112" x2="480" y2="138"/>
+          <text class="dg-small" x="490" y="108">flap</text>
+          <path class="dg-line" d="M500 140 L588 72" marker-end="url(#dg-arrow)"/>
+          <path class="dg-line" d="M500 148 L588 148" marker-end="url(#dg-arrow)"/>
+          <path class="dg-line" d="M500 156 L588 224" marker-end="url(#dg-arrow)"/>
+          <text class="dg-text" x="600" y="70">ripe chute</text>
+          <text class="dg-small" x="600" y="88">70% or more red</text>
+          <text class="dg-text" x="600" y="146">rides past</text>
+          <text class="dg-small" x="600" y="164">under 10% red</text>
+          <text class="dg-text" x="600" y="222">half-ripe chute</text>
+          <text class="dg-small" x="600" y="240">10 to 70% red</text>
+          <text class="dg-small" x="190" y="204" text-anchor="middle">sampling zone</text>
+          <text class="dg-small" x="190" y="220" text-anchor="middle">frames averaged</text>
+          <text class="dg-small" x="270" y="204">trigger line</text>
+          <text class="dg-small" x="270" y="220">grade decided</text>
+        </svg>
+      </div>
+      <figcaption class="label">
+        <span class="tag">How it decides</span>
+        The camera picks out each berry by color, using yellow, green, and red ranges, and measures how much of it is red. It averages several frames, then decides at the trigger line. The belt doesn't have to stop for each push: the program works out when the berry will reach the flap, queues the push, and keeps watching for the next one. The cutoffs can be changed on the touchscreen.
+      </figcaption>
+    </figure>
+
+    <figure class="row">
+      <div class="media stack">
+        <img src="images/strawberry/model-exploded.png" width="1165" height="639" alt="Exploded view of the SketchUp model: belt, pulleys, brackets, camera case, servo mount, flap, chute, and motor.">
+        <img src="images/strawberry/parts-laid-out.jpg" width="1400" height="1050" alt="The real parts laid out on a cutting mat: chutes, servo, flap, camera case and module, adapter board, aluminum frame, belt, blue printed brackets with bearings, stepper motor, and test strawberries.">
+      </div>
+      <figcaption class="label">
+        <span class="tag">Pulled apart</span>
+        The SketchUp model pulled apart (top) and the real parts (bottom). The pulleys, shafts, brackets, and camera gantry are printed in PETG, the camera case and flap in flexible TPU, and the pulleys turn on 608 bearings.
+      </figcaption>
+    </figure>
+
+    <figure class="row">
+      <div class="media stack">
+        <img class="schematic" src="images/strawberry/adapter-board-schematic.png" width="722" height="421" alt="Schematic of the adapter board connecting the K230 pins to the servo, the A4988 stepper driver, and a boost converter.">
+        <img src="images/strawberry/adapter-board.jpg" width="1400" height="1050" alt="The hand-soldered adapter board with the A4988 driver, mounted beside the stepper motor.">
+      </div>
+      <figcaption class="label">
+        <span class="tag">Wiring</span>
+        The schematic (top) and the real board beside the motor (bottom). This adapter board, soldered by hand, connects the K230 to the A4988 stepper driver and the MG995 servo. Power comes in at 5 V: one boost board makes 12 V for the motor, and the servo gets its own 5 V supply so its current spikes can't reset the main board.
+      </figcaption>
+    </figure>
+
+    <nav class="pager" aria-label="Projects">
+      <a href="index.html">← All projects</a>
+      <a href="thinking-map.html">Next: 02 Thinking Map →</a>
+    </nav>
+  </main>
+
+  <script>
+    // Respect "reduce motion": don't autoplay the video for people who turned that on.
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll("video[autoplay]").forEach((video) => {
+        video.removeAttribute("autoplay");
+        video.pause();
+      });
+    }
+  </script>
+</body>
+</html>

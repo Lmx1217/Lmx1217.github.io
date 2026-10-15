@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Course Data Platform · Your Name</title>
+  <meta name="description" content="A course catalog and student search built with React and TypeScript from my grade's Schoology data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Newsreader:opsz,wght@6..72,400..500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <a class="back" href="index.html">← All projects</a>
+
+    <div class="row first">
+      <header class="label">
+        <span class="tag">03</span>
+        <h1>Student Course Data Platform</h1>
+        <p class="summary">A course catalog and student search I built with React and TypeScript, using Schoology data from my grade: 302 students, 260 class sections, and 2,401 enrollments.</p>
+        <p>Pictured: the course catalog. Every name and email in these screenshots has been replaced, and the real data stays private.</p>
+      </header>
+      <div class="media">
+        <img class="screen" src="images/course-platform/course-catalog.jpg" width="1400" height="1000" alt="The Course Catalog page: a search box, subject and period filters, and a sortable table of 260 courses with period and student counts.">
+      </div>
+    </div>
+
+    <figure class="row">
+      <div class="media stack">
+        <img class="screen" src="images/course-platform/course-page-top.jpg" width="1400" height="638" alt="The course page for AP United States History: AP label, social studies, five periods, UC approval badges, and 116 students enrolled.">
+        <img class="screen" src="images/course-platform/course-page-periods.jpg" width="1400" height="1061" alt="Periods and enrollment for the same course: five periods with 19, 18, 27, 27, and 25 students, each student shown as a placeholder name.">
+      </div>
+      <figcaption class="label">
+        <span class="tag">Course pages</span>
+        Each course page gathers every section of that course: the periods it meets in and how many students from my grade are in each. This one is AP U.S. History, with 116 students across five periods.
+      </figcaption>
+    </figure>
+
+    <figure class="row">
+      <div class="media"><img class="screen" src="images/course-platform/student-search.jpg" width="1400" height="1000" alt="The Student Search page with placeholder names: grade filter, range sliders for course and group counts, and a sortable table."></div>
+      <figcaption class="label">
+        <span class="tag">Student search</span>
+        Search by name or email, filter by grade, and narrow the list by how many courses and groups each student is in using range sliders. Every column sorts.
+      </figcaption>
+    </figure>
+
+    <figure class="row">
+      <div class="media diagram">
+        <svg viewBox="0 0 760 150" role="img" aria-labelledby="pipe-title pipe-desc">
+          <title id="pipe-title">From raw data to the website</title>
+          <desc id="pipe-desc">Schoology data for 302 students goes through a 480-line Node.js clean-up script, which produces tables of people, courses, groups, and enrollments that the website reads.</desc>
+          <defs>
+            <marker id="pipe-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
+            </marker>
+          </defs>
+          <rect class="dg-box" x="1" y="20" width="158" height="110" rx="6"/>
+          <text class="dg-text" x="80" y="62" text-anchor="middle">Schoology data</text>
+          <text class="dg-small" x="80" y="86" text-anchor="middle">302 students</text>
+          <text class="dg-small" x="80" y="102" text-anchor="middle">from my grade</text>
+          <path class="dg-line" d="M165 75 L195 75" marker-end="url(#pipe-arrow)"/>
+          <rect class="dg-box" x="201" y="20" width="158" height="110" rx="6"/>
+          <text class="dg-text" x="280" y="62" text-anchor="middle">Clean-up script</text>
+          <text class="dg-small" x="280" y="86" text-anchor="middle">Node.js</text>
+          <text class="dg-small" x="280" y="102" text-anchor="middle">480 lines</text>
+          <path class="dg-line" d="M365 75 L395 75" marker-end="url(#pipe-arrow)"/>
+          <rect class="dg-box" x="401" y="20" width="158" height="110" rx="6"/>
+          <text class="dg-text" x="480" y="62" text-anchor="middle">Tables</text>
+          <text class="dg-small" x="480" y="86" text-anchor="middle">people, courses,</text>
+          <text class="dg-small" x="480" y="102" text-anchor="middle">groups, enrollments</text>
+          <path class="dg-line" d="M565 75 L595 75" marker-end="url(#pipe-arrow)"/>
+          <rect class="dg-box" x="601" y="20" width="158" height="110" rx="6"/>
+          <text class="dg-text" x="680" y="62" text-anchor="middle">Website</text>
+          <text class="dg-small" x="680" y="86" text-anchor="middle">search, filters,</text>
+          <text class="dg-small" x="680" y="102" text-anchor="middle">course pages</text>
+        </svg>
+      </div>
+      <figcaption class="label">
+        <span class="tag">From raw data to tables</span>
+        A script turns the raw Schoology data into clean tables. It splits course names into title, period, and section, works out each student's grade from their class year, flags AP courses, and drops entries that aren't classes, like advisory and free periods.
+      </figcaption>
+    </figure>
+
+    <nav class="pager" aria-label="Projects">
+      <a href="index.html">← All projects</a>
+    </nav>
+  </main>
+</body>
+</html>
