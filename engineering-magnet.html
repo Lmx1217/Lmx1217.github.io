@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engineering Magnet Builds · Andy</title>
+  <meta name="description" content="Builds from my school's engineering program: digital logic drawn by hand, simulated, wired on a breadboard, and programmed onto a PLD, plus CAD.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <a class="back" href="index.html">← All projects</a>
+
+    <div class="row first">
+      <header class="label">
+        <span class="tag">04</span>
+        <h1>Engineering Magnet Builds</h1>
+        <p class="summary">A few of my 100+ builds from my school's engineering program. Most are digital electronics: logic drawn by hand, simulated in Multisim, wired from chips on a breadboard, and programmed onto a PLD. There's also a train modeled in Autodesk Inventor.</p>
+        <p>Pictured: the digit circuit running on a breadboard, stepping through a sequence of digits on the display.</p>
+      </header>
+      <div class="media">
+        <video src="videos/breadboard-demo.mp4" poster="images/engineering-magnet/breadboard-demo-poster.jpg" width="1280" height="720" autoplay muted loop playsinline controls preload="auto" aria-label="The breadboard circuit running: a switch is flipped and the seven-segment display shows a sequence of digits."></video>
+      </div>
+    </div>
+
+    <figure class="row">
+      <div class="media grid-2" style="grid-template-columns: 1235fr 833fr;">
+        <img class="screen" src="images/engineering-magnet/sketch-full.jpg" width="1235" height="1400" alt="Hand-drawn logic diagram on graph paper: inputs X, Y, and Z pass through inverters and AND and OR gates into a seven-segment display labeled A to G.">
+        <img class="screen" src="images/engineering-magnet/sketch-f-g.jpg" width="833" height="1400" alt="Hand-drawn diagrams of outputs F and G, first with AND and OR gates, then rebuilt from NAND gates and NOR gates.">
+      </div>
+      <figcaption class="label">
+        <span class="tag">Drawn by hand</span>
+        Logic drawn on graph paper: three inputs (X, Y, Z) decoded into the seven segments of a digit display (left), and outputs F and G redrawn using only NAND gates or only NOR gates (right).
+      </figcaption>
+    </figure>
+
+    <figure class="row">
+      <div class="media"><img class="screen" src="images/engineering-magnet/multisim-digit-circuit.png" width="491" height="719" alt="Multisim schematic: three switches feed 74LS04, 74LS08, 74LS32, 74LS00, and 74LS02 gates that drive a seven-segment display."></div>
+      <figcaption class="label">
+        <span class="tag">Simulated in Multisim</span>
+        The digit circuit in Multisim: three switches feed 74LS-series AND, OR, NAND, and NOR gates, which drive a seven-segment display.
+      </figcaption>
+    </figure>
+
+    <figure class="row">
+      <div class="media grid-2" style="grid-template-columns: 1286fr 1333fr;">
+        <img src="images/engineering-magnet/breadboard-top.jpg" width="1400" height="1089" alt="Top view of the breadboard: ten logic chips connected by many jumper wires, with a seven-segment display at the bottom right.">
+        <img src="images/engineering-magnet/breadboard-side.jpg" width="1400" height="1050" alt="Side view of the same breadboard, with an NI myDAQ device behind it.">
+      </div>
+      <figcaption class="label">
+        <span class="tag">Wired on a breadboard</span>
+        The same circuit built on a myDigital protoboard: ten logic chips and their jumper wires, with the digit on the seven-segment display at the bottom right. The board connects to the NI myDAQ behind it.
+      </figcaption>
+    </figure>
+
+    <figure class="row">
+      <div class="media">
+        <video src="videos/pld-demo.mp4" poster="images/engineering-magnet/pld-demo-poster.jpg" width="1280" height="720" muted playsinline controls preload="none" aria-label="The PLTW S7 board on the protoboard: switches are flipped and the board's LEDs change."></video>
+      </div>
+      <figcaption class="label">
+        <span class="tag">Programmed onto a PLD</span>
+        Logic designed in Multisim and loaded onto a PLD, the PLTW S7 board, instead of wired from separate chips. The protoboard's switches set the inputs, and the LEDs on the board show the outputs.
+      </figcaption>
+    </figure>
+
+    <figure class="row">
+      <div class="media stack">
+        <img class="screen" src="images/engineering-magnet/multisim-counter.png" width="1031" height="454" alt="Multisim schematic of a synchronous 3-bit binary counter: three 74LS76 JK flip-flops, a 2 Hz clock, and a seven-segment display showing 7.">
+        <img class="screen" src="images/engineering-magnet/multisim-oscilloscope.png" width="905" height="585" alt="Multisim oscilloscope with four square-wave traces from a flip-flop circuit.">
+      </div>
+      <figcaption class="label">
+        <span class="tag">Flip-flops and counting</span>
+        A synchronous 3-bit binary counter made from JK flip-flops (74LS76) and clocked at 2 Hz, with its count on a seven-segment display (top), and oscilloscope traces from a flip-flop circuit in Multisim (bottom).
+      </figcaption>
+    </figure>
+
+    <figure class="row">
+      <div class="media"><img class="screen" src="images/engineering-magnet/inventor-train.jpg" width="1919" height="775" alt="Autodesk Inventor showing TRAIN.iam: a model browser listing parts 1 to 9 and a 3D view of a toy steam train."></div>
+      <figcaption class="label">
+        <span class="tag">CAD</span>
+        A toy train modeled in Autodesk Inventor, assembled from nine part files, several of them used more than once.
+      </figcaption>
+    </figure>
+
+    <nav class="pager" aria-label="Projects">
+      <a href="index.html">← All projects</a>
+      <a href="learning-compass.html">Next: 05 Learning Compass →</a>
+    </nav>
+  </main>
+
+  <script>
+    // Respect "reduce motion": don't autoplay the video for people who turned that on.
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll("video[autoplay]").forEach((video) => {
+        video.removeAttribute("autoplay");
+        video.pause();
+      });
+    }
+  </script>
+</body>
+</html>
