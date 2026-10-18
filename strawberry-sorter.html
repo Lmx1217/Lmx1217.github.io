@@ -36,8 +36,8 @@
     <figure class="row">
       <div class="media"><img src="images/strawberry/machine-closeup.jpg" width="1400" height="1050" alt="Close-up of the sorting end: the K230 module with its screen, the servo and black flap over the belt, and the stepper motor with the driver board beside it."></div>
       <figcaption class="label">
-        <span class="tag">Up close</span>
-        The K230 and its screen on top, the servo and the flap that pushes berries off the belt, and the stepper motor at the far end.
+        <span class="tag">How it works</span>
+        The K230 and its screen on top, the servo and the flap that pushes berries off the belt, and the stepper motor at the far end. The camera picks out each berry by color, using yellow, green, and red ranges, and measures how much of it is red. It averages several frames, then decides at a trigger line. The belt doesn't have to stop for each push: the program works out when the berry will reach the flap, queues the push, and keeps watching for the next one. The cutoffs can be changed on the touchscreen.
       </figcaption>
     </figure>
 
@@ -46,53 +46,6 @@
       <figcaption class="label">
         <span class="tag">Test strawberries</span>
         I 3D printed these test strawberries. They run from fully red to white, so all three grades show up, and they're the berries in the video.
-      </figcaption>
-    </figure>
-
-    <figure class="row">
-      <div class="media diagram">
-        <svg viewBox="0 44 760 212" role="img" aria-labelledby="dg-title dg-desc">
-          <title id="dg-title">How the sorter decides</title>
-          <desc id="dg-desc">Berries ride the belt through the camera view. In the sampling zone the camera averages several frames, and at the trigger line it decides the grade. The flap sits 110 mm further along by default. Berries that are 70% or more red go to the ripe chute, 10 to 70% red to the half-ripe chute, and under 10% red ride past.</desc>
-          <defs>
-            <marker id="dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path class="dg-head" d="M0 0 L10 5 L0 10 z"/>
-            </marker>
-          </defs>
-          <rect class="dg-belt" x="10" y="124" width="560" height="48" rx="24"/>
-          <text class="dg-small" x="20" y="152">belt →</text>
-          <rect class="dg-zone" x="150" y="124" width="80" height="48"/>
-          <rect class="dg-dash" x="72" y="104" width="226" height="88"/>
-          <text class="dg-small" x="72" y="96">camera view</text>
-          <line class="dg-trigger" x1="262" y1="112" x2="262" y2="184"/>
-          <circle class="dg-berry" cx="110" cy="148" r="9"/>
-          <circle class="dg-berry" cx="190" cy="148" r="9"/>
-          <circle class="dg-berry" cx="380" cy="148" r="9"/>
-          <line class="dg-line" x1="262" y1="80" x2="480" y2="80"/>
-          <line class="dg-line" x1="262" y1="74" x2="262" y2="86"/>
-          <line class="dg-line" x1="480" y1="74" x2="480" y2="86"/>
-          <text class="dg-small" x="371" y="68" text-anchor="middle">trigger to flap: 110 mm (default)</text>
-          <circle class="dg-head" cx="480" cy="112" r="5"/>
-          <line class="dg-flap" x1="480" y1="112" x2="480" y2="138"/>
-          <text class="dg-small" x="490" y="108">flap</text>
-          <path class="dg-line" d="M500 140 L588 72" marker-end="url(#dg-arrow)"/>
-          <path class="dg-line" d="M500 148 L588 148" marker-end="url(#dg-arrow)"/>
-          <path class="dg-line" d="M500 156 L588 224" marker-end="url(#dg-arrow)"/>
-          <text class="dg-text" x="600" y="70">ripe chute</text>
-          <text class="dg-small" x="600" y="88">70% or more red</text>
-          <text class="dg-text" x="600" y="146">rides past</text>
-          <text class="dg-small" x="600" y="164">under 10% red</text>
-          <text class="dg-text" x="600" y="222">half-ripe chute</text>
-          <text class="dg-small" x="600" y="240">10 to 70% red</text>
-          <text class="dg-small" x="190" y="204" text-anchor="middle">sampling zone</text>
-          <text class="dg-small" x="190" y="220" text-anchor="middle">frames averaged</text>
-          <text class="dg-small" x="270" y="204">trigger line</text>
-          <text class="dg-small" x="270" y="220">grade decided</text>
-        </svg>
-      </div>
-      <figcaption class="label">
-        <span class="tag">How it decides</span>
-        The camera picks out each berry by color, using yellow, green, and red ranges, and measures how much of it is red. It averages several frames, then decides at the trigger line. The belt doesn't have to stop for each push: the program works out when the berry will reach the flap, queues the push, and keeps watching for the next one. The cutoffs can be changed on the touchscreen.
       </figcaption>
     </figure>
 

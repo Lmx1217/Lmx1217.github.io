@@ -108,8 +108,8 @@ figure { margin: 0; }
 .label h1 { margin: 0; font-size: clamp(28px, 2.6vw, 36px); font-weight: 500; line-height: 1.15; color: var(--text); text-wrap: balance; }
 .label p { margin: 14px 0 0; }
 .label .summary { font-size: 18px; }
-.label .links { font-size: 13px; }
-.label .links a { color: var(--text); }
+.label .links { font-size: 17px; font-weight: 500; }
+.label .links a { color: var(--accent); }
 
 /* Portrait video in the first row: as tall as the screen allows, up to 400px wide */
 .row.first.tall-media { grid-template-columns: auto minmax(0, 1fr); }
